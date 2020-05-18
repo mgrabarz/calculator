@@ -9,14 +9,10 @@ on:
 
 env:
   SODO_TEST: test
-  SODO_TEST2: test2
+  GITHUB_TEST2: test2
 
 jobs:
   build:
-    env:
-      SODO_INNER_TEST3: test_inner3
-      SODO_TEST: test_inner1
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -26,8 +22,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: echo $SODO_TEST 
-    - run: echo $SODO_TEST2
-    - run: echo $SODO_INNER_TEST3 
+    - run: echo $GITHUB_TEST2
+    - run: echo $GITHUB_RUN_NUMBER
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
