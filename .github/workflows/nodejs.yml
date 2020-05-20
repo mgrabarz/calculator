@@ -16,14 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TEST: test_override
-      Hello: {{ format('Hello {0}/{1}', 'SO', 'DO') }}
-      Hello2: {{ endswith(env.Hello, 'SO/DO') }}
+      Hello: ${{ format('Hello {0}/{1}', 'SO', 'DO') }}
+      Hello2: ${{ endswith(env.Hello, 'SO/DO') }}
     steps:
     - uses: actions/checkout@v2
     - run: echo $TEST
     - run: echo $TEST2
       if: ${{ success() }}
-    - run: |
-      echo $Hello
-      echo $Hello2
+    - run: echo $Hello
+    - run: echo $Hello2
     - run: echo $GITHUB_RUN_NUMBER
