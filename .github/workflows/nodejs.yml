@@ -17,12 +17,12 @@ jobs:
     env:
       TEST: test_override
       Hello: ${{ format('Hello {0}/{1}', 'SO', 'DO') }}
-      Hello2: ${{ endswith(env.Hello, 'SO/DO') }}
+      json: ${{ toJson(github) }}
     steps:
     - uses: actions/checkout@v2
     - run: echo $TEST
     - run: echo $TEST2
       if: ${{ success() }}
     - run: echo $Hello
-    - run: echo $Hello2
+    - run: echo $json
     - run: echo $GITHUB_RUN_NUMBER
