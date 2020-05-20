@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: [ubuntu-latest, self-hosted, node12]
+    runs-on: [Linux, self-hosted, node12]
 
     steps:
     - uses: actions/checkout@master
